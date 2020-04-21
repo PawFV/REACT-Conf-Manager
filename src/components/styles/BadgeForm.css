@@ -1,0 +1,14 @@
+.Form__title {
+    font-weight: bolder;
+    letter-spacing: -1px;
+}
+
+.Form__button {
+    width: 108px;
+}
+
+@media screen and (max-width: 991px) {
+    .Form__button {
+        width: 100%;
+    }
+}

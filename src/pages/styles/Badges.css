@@ -1,0 +1,93 @@
+.Badges__hero {
+    padding: 0.5rem;
+    height: 4rem;
+    background: rgb(35, 87, 91);
+    background: linear-gradient(90deg, rgba(35, 87, 91, 1) 0%, rgba(64, 161, 169, 1) 100%, rgba(54, 180, 205, 0.6465823578595318) 100%);
+}
+
+.Badges__container {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #f4f4f7;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.Badges_conf-logo {
+    margin-bottom: 2rem;
+    width: 70px;
+    height: 100%;
+    opacity: 0.8;
+    align-self: start;
+    color: #000000dc;
+}
+
+.Badges__buttons {
+    position: absolute;
+    right: 16px;
+    top: 45px;
+    transform: translateY(-50%);
+    background-color: #40A1A9;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: bolder;
+    border-radius: 5px;
+    text-decoration: none;
+    border-bottom: 3px inset rgb(45, 116, 122);
+}
+
+.Badges__buttons:hover {
+    background-color: rgba(64, 160, 169, 0.747);
+    transition: background-color .5s;
+    text-decoration: none;
+    color: white;
+}
+
+.Badges__buttons:active {
+    border-bottom: 1px inset rgb(45, 116, 122);
+}
+
+.list {
+    list-style-type: none;
+    background-color: #f4f4f7;
+    padding: 0;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+}
+
+.list-item img {
+    border-radius: 100%;
+}
+
+.list-item__info {
+    padding-left: 1.2rem;
+}
+
+.list-item p:last-child {
+    margin: 0;
+}
+
+.list-item p a {
+    color: rgb(66, 120, 170);
+}
+
+.Badges__list-icons {
+    color: rgb(75, 75, 75);
+    margin-top: -2px;
+    margin-right: 8px;
+}
+
+[data-first] {
+    margin-top: -4px;
+}
