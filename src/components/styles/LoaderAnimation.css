@@ -1,14 +1,14 @@
 .lds-grid {
   display: inline-block;
   position: relative;
-  width: 64px;
-  height: 64px;
+  width: 30px;
+  height: 30px;
 }
 
 .lds-grid div {
   position: absolute;
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #000;
   animation: lds-grid 1.2s linear infinite;

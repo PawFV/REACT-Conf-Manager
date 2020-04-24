@@ -4,26 +4,10 @@ import './styles/BadgeForm.css'
 export class BadgeForm extends Component {
     state = {};
 
-    handleChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-    handleClick = e => {
-        console.log('Button click');
-    }
-
-    handleSubmit = e => {
-        e.preventDefault();
-        console.log('Form was submited');
-        console.log(this.state);
-    }
-
     render() {
         return (
             <div>
-                <h1 className="Form__title">New Guest</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <label htmlFor="">First Name</label>
                         <input
@@ -64,6 +48,7 @@ export class BadgeForm extends Component {
                     </div>
                     <button className="__buttons Form__button"
                         onClick={this.handleClick} >Save</button>
+                    {this.props.error && <p className="text-danger">{this.props.error.message}</p>}
                 </form>
             </div>
         )

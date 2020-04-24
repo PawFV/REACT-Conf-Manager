@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
+import MiniLoader from '../components/MiniLoader'
 import BadgesList from '../components/BadgesList';
 import Loader from '../components/Loader'
 import NotFound from './NotFound';
@@ -17,56 +19,47 @@ export class Badges extends Component {
     };
 
     componentDidMount() {
-        this.fetchData()
+        this.fetchData();
+        // Interval para actualizar BadgesList
+        this.intervalId = setInterval(this.fetchData, 5000);
     }
 
     fetchData = async () => {
-        this.setState({
-            loading: true, error: null
-        })
-
+        this.setState({ loading: true, error: null })
         try {
-            const data = await api.badges.list();
-            this.setState({
-                loading: false,
-                data: data,
-            })
+            const data = await api.badges.list()
+            this.setState({ loading: false, data: data })
         } catch (error) {
-            this.setState({
-                loading: false,
-                error: error,
-            })
+            this.setState({ loading: false, error: error })
         }
     }
 
-    render() {
-        // LOADING [...]
-        if (this.state.loading === true) {
-            return <Loader />
-        }
+    componentWillUnmount() {
+        clearInterval(this.intervalId)
+    }
 
+    render() {
+        // LOADING API
+        if (this.state.loading && !this.state.data) return <Loader />
         // Error
-        if (this.state.error) {
-            return <NotFound />
-        }
+        if (this.state.error) return <NotFound />
 
         return (
-            <>
-                <div className="Badges">
-                    <div className="Badges__hero">
-                        <div className="Badges__container">
-                            <GiTechnoHeart className="Badges_conf-logo" />
-                            <Link to="/badges/new" className="Badges__buttons">
-                                New Badge
+            <div className="Badges">
+                <div className="Badges__hero">
+                    <div className="Badges__container">
+                        <GiTechnoHeart className="Badges_conf-logo" />
+                        <Link to="/badges/new" className="Badges__buttons">
+                            New Badge
                         </Link>
-                            <div className="Badges__list">
-                                <BadgesList
-                                    badges={this.state.data} />
-                            </div>
+                        <div className="Badges__list">
+                            <BadgesList
+                                badges={this.state.data} />
                         </div>
                     </div>
                 </div>
-            </>
+                {this.state.loading && <MiniLoader />}
+            </div>
         )
     }
 }

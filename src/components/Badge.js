@@ -2,19 +2,27 @@ import React from 'react';
 import './styles/Badge.css';
 import { GoMarkGithub } from 'react-icons/go'
 import { GiTechnoHeart } from 'react-icons/gi';
+import Gravatar from './Gravatar'
 
 class Badge extends React.Component {
+    state = {}
+
+
     render() {
         return (
             <div className="Badge">
                 <div className="Badge__header">
                     <GiTechnoHeart className="Badge__header-icon" />
-                    <h2>Your new guest</h2>
+                    <h2>Your guest</h2>
                 </div>
 
                 <div className="Badge__section-name">
                     <div className="Badge__avatar">
-                        {/*  */}
+                        <Gravatar
+                            className="Badge__avatar-img"
+                            email={this.props.email}
+                            alt="Avatar"
+                        />
                     </div>
 
                     <div className="Badge__name">

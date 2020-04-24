@@ -8,15 +8,16 @@ import md5 from 'md5';
 
 
 import BadgeForm from '../components/BadgeForm.js';
-import './styles/BadgeNew.css';
+import './styles/BadgeEdit.css';
 
 
-class BadgeNew extends React.Component {
+class BadgeEdit extends React.Component {
 
     gitUrl = "https://github.com/PawFV/";
 
     state = {
-        loading: false,
+        //Inicializamos true porque es una petición (PUT)
+        loading: true,
         error: null,
         form: {
             firstName: '',
@@ -26,6 +27,23 @@ class BadgeNew extends React.Component {
             avatarUrl: '',
         }
     };
+
+    componentDidMount() {
+        this.fetchData()
+    }
+
+    fetchData = async e => {
+        this.setState({ loading: true, error: null })
+
+        try {
+            const data = await api.badges.read(
+                this.props.match.params.badgeId
+            );
+            this.setState({ loading: false, form: data })
+        } catch (error) {
+            this.setState({ loading: false, form: error })
+        }
+    }
 
     handleChange = e => {
         const nextForm = this.state.form;
@@ -49,16 +67,10 @@ class BadgeNew extends React.Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-        this.setState({
-            loading: true,
-            error: null
-        })
-
+        this.setState({ loading: true, error: null })
         try {
-            await api.badges.create(this.state.form)
-            this.setState({
-                loading: false,
-            })
+            await api.badges.update(this.props.match.params.badgeId, this.state.form)
+            this.setState({ loading: false, })
             //Regresa a la página /badges
             this.props.history.push('/badges')
         } catch (error) {
@@ -77,7 +89,7 @@ class BadgeNew extends React.Component {
 
 
         return (
-            <div className="BadgeNew__container">
+            <div className="BadgeEdit__container">
                 <div className="container-sm pt-3">
                     <div className="row">
                         <div className="col-12 col-lg-6 mb-3">
@@ -92,7 +104,6 @@ class BadgeNew extends React.Component {
                             />
                         </div>
                         <div className="col-12 col-lg-6 mb-3">
-                            <h2>Your new guest</h2>
                             <BadgeForm
                                 onChange={this.handleChange}
                                 formvalues={this.state.form}
@@ -107,4 +118,4 @@ class BadgeNew extends React.Component {
         );
     }
 }
-export default BadgeNew;
+export default BadgeEdit;
