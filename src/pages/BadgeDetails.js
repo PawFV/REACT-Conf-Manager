@@ -11,7 +11,8 @@ function BadgeDetails(props) {
   return (
     <div className="container BadgeDetails">
       <div className="row BadgeDetails__container">
-        <div className="col row BadgeDetails__badge">
+
+        <div className="col BadgeDetails__badge">
           <Badge
             firstName={badge.firstName}
             lastName={badge.lastName}

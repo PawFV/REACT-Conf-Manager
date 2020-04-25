@@ -10,8 +10,6 @@
 
 .BadgeDetails__badge {
   margin-top: 80px;
-  display: flex;
-  justify-content: center;
 }
 
 .BadgeDetails__actions {
