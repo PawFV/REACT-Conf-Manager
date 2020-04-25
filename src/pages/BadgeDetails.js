@@ -1,46 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/BadgeDetails.css';
 import Badge from '../components/Badge';
 import DeleteBadgeModal from '../components/DeleteBadgeModal';
 
+
 function BadgeDetails(props) {
   const badge = props.badge;
 
   return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <Badge
-              firstName={badge.firstName}
-              lastName={badge.lastName}
-              email={badge.email}
+    <div className="container BadgeDetails">
+      <div className="row BadgeDetails__container">
+        <div className="col row BadgeDetails__badge">
+          <Badge
+            firstName={badge.firstName}
+            lastName={badge.lastName}
+            email={badge.email}
+          />
+        </div>
+
+
+        <div className="col BadgeDetails__actions">
+          <h3 className="BadgeDetails__actions-title">Actions</h3>
+
+          <Link to={`/badges/${badge.id}/edit`} style={{ textDecoration: 'none' }}>
+            <button className="__buttons BadgeDetails__buttons BadgeDetails__buttons-edit">
+              Edit
+            </button>
+          </Link>
+
+          <div>
+            <button onClick={props.openModal} className="__buttons BadgeDetails__buttons BadgeDetails__buttons-delete">Delete</button>
+            <DeleteBadgeModal
+              isOpen={props.modalIsOpen}
+              closeModal={props.closeModal}
+              deleteBadge={props.deleteBadge}
             />
           </div>
 
-          <div className="col">
-            <h2>Actions</h2>
-            <div>
-              <div>
-                <Link
-                  className="btn btn-primary mb-4"
-                  to={`/badges/${badge.id}/edit`}
-                >
-                  Edit
-                </Link>
-              </div>
-
-              <div>
-                <button onClick={props.openModal} className="btn btn-danger">Delete</button>
-                <DeleteBadgeModal
-                  isOpen={props.modalIsOpen}
-                  closeModal={props.closeModal}
-                  deleteBadge={props.deleteBadge}
-                /> 
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

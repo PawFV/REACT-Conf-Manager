@@ -49,15 +49,15 @@
 }
 
 .Badge__name {
-    width: 280px;
-}
-
-.Badge__name h1 {
-    max-width: 280px;
-    /* border: 1px solid black; */
+    justify-self: center;
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+    max-width: 220px;
+}
+
+.Badge__name h1 {
+    /* border: 1px solid black; */
 }
 
 .Badge__section-info {

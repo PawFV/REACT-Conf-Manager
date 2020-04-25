@@ -40,7 +40,6 @@ class BadgeNew extends React.Component {
     }
 
     handleImgUrl(emailValue) {
-        debugger
         const email = emailValue;
         let hash = md5(email);
         hash = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
@@ -82,8 +81,8 @@ class BadgeNew extends React.Component {
                     <div className="row">
                         <div className="col-12 col-lg-6 mb-3">
                             <Badge
-                                firstName={this.state.form.firstName || 'FIRST_NAME'}
-                                lastName={this.state.form.lastName || 'LAST_NAME'}
+                                firstName={this.state.form.firstName || 'Name'}
+                                lastName={this.state.form.lastName}
                                 contact={this.state.form.contact || 'contact'}
                                 email={this.state.form.email || 'email'}
                                 avatarUrl={this.state.form.avatarUrl}

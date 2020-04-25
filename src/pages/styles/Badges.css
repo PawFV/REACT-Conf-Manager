@@ -10,6 +10,7 @@
     width: 100%;
     max-width: 580px;
     margin: 0 auto;
+    margin-bottom: 50px;
     padding: 1rem;
     background: #f4f4f7;
     border-radius: 10px;
@@ -17,7 +18,7 @@
 }
 
 .Badges_conf-logo {
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     width: 70px;
     height: 100%;
     opacity: 0.8;
@@ -28,7 +29,7 @@
 .Badges__buttons {
     position: absolute;
     right: 16px;
-    top: 45px;
+    top: 55px;
     transform: translateY(-50%);
     background-color: #40A1A9;
     color: #fff;
@@ -105,6 +106,7 @@
 [data-first] {
     margin-top: -4px;
 }
-.user-edit{
+
+.user-edit {
     margin-bottom: 1.5rem;
 }

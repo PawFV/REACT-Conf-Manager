@@ -25,11 +25,11 @@ class Badge extends React.Component {
                         />
                     </div>
 
-                    <div className="Badge__name">
-                        <h1>{this.props.firstName}
-                            <br />
-                            {this.props.lastName}</h1>
-                    </div>
+                    <h1 className="Badge__name">
+                        {this.props.firstName}
+                        <br />
+                        {this.props.lastName}
+                    </h1>
 
                 </div>
 

@@ -6,6 +6,26 @@
   margin-bottom: 1rem;
 }
 
+.BadgeDetails {}
+
+.BadgeDetails__badge {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.BadgeDetails__actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.BadgeDetails__actions-title {
+  width: 150px;
+  text-align: center;
+  padding: 25px 0;
+  margin: 0;
+}
+
 .BadgeDetails__hero-attendant-name {
   display: flex;
   flex-direction: column;
@@ -13,7 +33,27 @@
 }
 
 .BadgeDetails__buttons {
+  width: 150px;
+  text-align: center;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-bottom: 1rem;
+}
+
+.BadgeDetails__buttons-delete {
+  background-color: rgb(255, 0, 0);
+  border-color: rgb(116, 0, 0);
+}
+
+.BadgeDetails__buttons-delete:hover {
+  background-color: rgba(255, 0, 0, 0.644);
+}
+
+@media screen and (max-width: 768px) {
+  .BadgeDetails__actions {
+    align-items: center;
+  }
+  .BadgeDetails__badge {
+    margin-top: 20px;
+  }
 }
