@@ -83,7 +83,7 @@ class BadgeNew extends React.Component {
                                 firstName={this.state.form.firstName || 'Name'}
                                 lastName={this.state.form.lastName}
                                 contact={this.state.form.contact || 'contact'}
-                                email={this.state.form.email || 'email'}
+                                email={this.state.form.email || 'E-mail'}
                                 avatarUrl={this.state.form.avatarUrl}
                                 gitUrl={this.gitUrl}
                                 onChange={this.handleImgUrl}
