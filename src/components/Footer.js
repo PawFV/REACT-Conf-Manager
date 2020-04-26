@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './styles/Footer.css'
 import { IoIosHeart } from 'react-icons/io';
 import { MdCopyright } from 'react-icons/md'
 

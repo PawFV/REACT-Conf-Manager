@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import './styles/LoaderAnimation.css';
-import './styles/miniloader.css'
-
 export default class Loader extends Component {
     render() {
         return (

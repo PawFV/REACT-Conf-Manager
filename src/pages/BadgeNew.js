@@ -6,9 +6,8 @@ import Footer from '../components/Footer'
 import Loader from '../components/Loader'
 import md5 from 'md5';
 
-
 import BadgeForm from '../components/BadgeForm.js';
-import './styles/BadgeNew.css';
+
 
 
 class BadgeNew extends React.Component {

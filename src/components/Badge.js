@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/Badge.css';
 import { GoMarkGithub } from 'react-icons/go'
 import { GiTechnoHeart } from 'react-icons/gi';
 import Gravatar from './Gravatar'

@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/Home.css'
 import { GiProcessor } from 'react-icons/gi';
 
 import { Link } from 'react-router-dom';

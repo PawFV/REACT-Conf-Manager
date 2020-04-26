@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import './styles/LoaderAnimation.css';
-
 export default class Loader extends Component {
   render() {
     return (

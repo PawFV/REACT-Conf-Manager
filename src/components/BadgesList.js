@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react';
 // npm install react-icons --save 
 // fuente: https://react-icons.netlify.app/#/
 import { IoIosMail } from 'react-icons/io';
-import { FaUserTie, FaMobileAlt, FaEdit } from 'react-icons/fa';
+import { FaUserTie, FaEdit } from 'react-icons/fa';
 import { MdWork } from 'react-icons/md'
 import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';

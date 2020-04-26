@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles/NotFound.css';
 import notFoundIMg from '../images/404.png';
 // import backGroundImg from '../images/404background.png';
 

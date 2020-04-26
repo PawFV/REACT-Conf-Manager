@@ -7,7 +7,6 @@ import BadgesList from '../components/BadgesList';
 import Loader from '../components/Loader'
 import NotFound from './NotFound';
 import api from '../api'; //API!
-import './styles/Badges.css'
 import { GiTechnoHeart } from 'react-icons/gi';
 
 

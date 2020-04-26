@@ -8,7 +8,7 @@ import md5 from 'md5';
 
 
 import BadgeForm from '../components/BadgeForm.js';
-import './styles/BadgeEdit.css';
+
 
 
 class BadgeEdit extends React.Component {
