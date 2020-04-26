@@ -180,7 +180,7 @@ input[type="email"] {
   top: 55px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-color: #40A1A9;
+  background-color: #40a1a9;
   color: #fff;
   padding: 10px 20px;
   font-weight: bolder;
@@ -191,8 +191,8 @@ input[type="email"] {
 
 .Badges__buttons:hover {
   background-color: rgba(64, 160, 169, 0.747);
-  -webkit-transition: background-color .5s;
-  transition: background-color .5s;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
   text-decoration: none;
   color: white;
 }
@@ -237,12 +237,14 @@ input[type="email"] {
   opacity: 0.7;
 }
 
-.list-item img {
+.list-item__img {
   border-radius: 100%;
+  margin-right: 17px;
 }
 
 .list-item__info {
   padding-left: 1.2rem;
+  border-left: 1px solid #a09f9f;
 }
 
 .list-item p:last-child {

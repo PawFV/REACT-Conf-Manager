@@ -69,7 +69,7 @@ function BadgesList(props) {
                         return (
                             <li className="list-item" key={badge.id}>
 
-                                <img src={badge.avatarUrl} alt="" />
+                                <img className="list-item__img" src={badge.avatarUrl} alt="" />
 
                                 <div className="list-item__info">
                                     <p>
