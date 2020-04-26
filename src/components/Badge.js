@@ -12,7 +12,7 @@ class Badge extends React.Component {
             <div className="Badge">
                 <div className="Badge__header">
                     <GiTechnoHeart className="Badge__header-icon" />
-                    <h2>Your guest</h2>
+                    <h2 className="Badge__header-title">Your guest</h2>
                 </div>
 
                 <div className="Badge__section-name">
@@ -24,16 +24,17 @@ class Badge extends React.Component {
                         />
                     </div>
 
-                    <h1 className="Badge__name">
+                    <h2 className="Badge__name">
                         {this.props.firstName}
                         <br />
                         {this.props.lastName}
-                    </h1>
+                    </h2>
 
                 </div>
-
+                <div className="Badge__section-email">
+                    <h5><a href={`mailto:${this.props.email}`}>{this.props.email}</a></h5>
+                </div>
                 <div className="Badge__section-info">
-                    <h3>{this.props.jobTitle}</h3>
                     <GoMarkGithub className="Badge__footer-icon" /> <a className="Badge__section-url" href={this.props.gitUrl}>GitHub</a>
                 </div>
             </div>

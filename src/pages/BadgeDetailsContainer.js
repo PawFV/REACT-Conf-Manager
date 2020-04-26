@@ -22,7 +22,6 @@ export class BadgeDetailsContainer extends Component {
 
     fetchData = async () => {
         this.setState({ loading: true, error: null })
-
         try {
             const data = await api.badges.read(
                 this.props.match.params.badgeId
@@ -33,11 +32,12 @@ export class BadgeDetailsContainer extends Component {
             this.setState({ loading: false, data: error })
         }
     }
+
     openModal = e => {
-        this.setState({modalIsOpen:true})
+        this.setState({ modalIsOpen: true })
     }
     closeModal = e => {
-        this.setState({modalIsOpen:false})
+        this.setState({ modalIsOpen: false })
     }
 
     deleteBadge = async e => {
@@ -48,14 +48,25 @@ export class BadgeDetailsContainer extends Component {
             )
             this.props.history.push('/badges')
         } catch (error) {
-            this.setState({loading:false, error:error})
+            this.setState({ loading: false, error: error })
         }
+    }
+
+    isEmpty(obj) {
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                return false;
+            }
+        }
+        return true
     }
 
     render() {
         if (this.state.loading) return <Loader />
 
         if (this.state.error) return <Error />
+
+        if (this.isEmpty(this.state.data)) return <Error />
 
         const badge = this.state.data
         return (

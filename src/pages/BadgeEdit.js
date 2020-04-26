@@ -1,11 +1,11 @@
 import React from 'react';
-import api from '../api'
+import api from '../api';
 
 import Badge from '../components/Badge';
-import Footer from '../components/Footer'
-import Loader from '../components/Loader'
+import Footer from '../components/Footer';
+import Loader from '../components/Loader';
+import Error from './NotFound'
 import md5 from 'md5';
-
 
 import BadgeForm from '../components/BadgeForm.js';
 
@@ -25,7 +25,8 @@ class BadgeEdit extends React.Component {
             email: '',
             contact: '',
             avatarUrl: '',
-        }
+        },
+        data: null
     };
 
     componentDidMount() {
@@ -58,7 +59,6 @@ class BadgeEdit extends React.Component {
     }
 
     handleImgUrl(emailValue) {
-        debugger
         const email = emailValue;
         let hash = md5(email);
         hash = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
@@ -81,12 +81,22 @@ class BadgeEdit extends React.Component {
         }
     }
 
+    isEmpty(obj) {
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                return false;
+            }
+        }
+        return true
+    }
+
     render() {
 
         if (this.state.loading) {
             return <Loader />
         }
 
+        if (this.isEmpty(this.state.form)) return <Error />
 
         return (
             <div className="BadgeEdit__container">
@@ -109,6 +119,9 @@ class BadgeEdit extends React.Component {
                                 formvalues={this.state.form}
                                 onSubmit={this.handleSubmit}
                                 error={this.state.error}
+                                firstName={this.state.form.firstName || 'Name'}
+                                lastName={this.state.form.lastName}
+                                email={this.state.form.email || 'email'}
                             />
                         </div>
                     </div>

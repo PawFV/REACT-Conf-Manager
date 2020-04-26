@@ -16,7 +16,8 @@ export class BadgeForm extends Component {
                             name="firstName"
                             id="firstName"
                             onChange={this.props.onChange}
-                            value={this.state.firstName}
+                            value={this.props.firstName}
+
                         />
                         <label htmlFor="">Last Name</label>
                         <input
@@ -26,7 +27,8 @@ export class BadgeForm extends Component {
                             name="lastName"
                             id="lastName"
                             onChange={this.props.onChange}
-                            value={this.state.lastName}
+                            value={this.props.lastName}
+
                         />
                         <label htmlFor="">E-mail</label>
                         <input
@@ -34,7 +36,8 @@ export class BadgeForm extends Component {
                             type="email"
                             name="email"
                             onChange={this.props.onChange}
-                            value={this.state.email}
+                            value={this.props.email}
+
                         />
                         <label htmlFor="">Phone number</label>
                         <input

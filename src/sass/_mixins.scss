@@ -1,0 +1,17 @@
+@mixin btn {
+    border: none;
+    background-color: $btnColor;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bolder;
+    text-decoration: none;
+    border-bottom: $borderBtn;
+}
+
+@mixin btnHover {
+    background-color: $btnBgHover;
+    transition: background-color 0.5s;
+    text-decoration: none;
+    color: white;
+}

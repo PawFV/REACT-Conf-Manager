@@ -1,0 +1,27 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Lato", "Helvetica Neue", sans-serif;
+  background-color: #f4f4f7;
+  background: url("./images/404background.png");
+}
+
+h1 {
+  font-family: "Lato", sans-serif;
+  font-size: 2.5rem;
+}
+
+input[type="text"],
+input[type="email"] {
+  border: 1px solid rgb(167, 167, 167);
+}
+
+.__buttons {
+  @include btn;
+  &:hover {
+    @include btnHover;
+  }
+}

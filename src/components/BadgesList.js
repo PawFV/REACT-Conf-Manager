@@ -61,7 +61,6 @@ function BadgesList(props) {
                         <input type="text" className="form-control"
                             value={query}
                             onChange={(e) => {
-                                debugger
                                 setQuery(e.target.value)
                             }}
                         />

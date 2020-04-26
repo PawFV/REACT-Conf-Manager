@@ -1,5 +1,45 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Anton");
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Lato", "Helvetica Neue", sans-serif;
+  background-color: #f4f4f7;
+  background: url("./images/404background.png");
+}
+
+h1 {
+  font-family: "Lato", sans-serif;
+  font-size: 2.5rem;
+}
+
+input[type="text"],
+input[type="email"] {
+  border: 1px solid #a7a7a7;
+}
+
+.__buttons {
+  border: none;
+  background-color: #40a1a9;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bolder;
+  text-decoration: none;
+  border-bottom: 3px inset #2d747a;
+}
+
+.__buttons:hover {
+  background-color: rgba(64, 160, 169, 0.747);
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  text-decoration: none;
+  color: white;
+}
+
 .BadgeDetails__hero {
   width: 100%;
   padding: 2rem 0;
@@ -395,7 +435,7 @@
   background-color: rgba(50, 154, 163, 0.924);
 }
 
-.Badge__header h2 {
+.Badge__header-title {
   color: white;
   display: inline;
 }
@@ -405,17 +445,11 @@
   left: 0;
   height: 50px;
   color: rgba(255, 254, 254, 0.89);
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   overflow: hidden;
   vertical-align: middle;
   width: 80px;
   margin-top: -2px;
-}
-
-.Badge__header img {
-  width: 70px;
-  height: 100%;
-  opacity: 0.8;
 }
 
 .Badge__section-name {
@@ -428,7 +462,23 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
+}
+
+.Badge__section-name .Badge__avatar {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.Badge__section-name .Badge__avatar-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
 }
 
 .Badge__name {
@@ -436,17 +486,13 @@
       justify-self: center;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -webkit-hyphens: manual;
+      -ms-hyphens: manual;
+          hyphens: manual;
   max-width: 220px;
 }
 
-.Badge__name h1 {
-  /* border: 1px solid black; */
-}
-
-.Badge__section-info {
+.Badge__section-email, .Badge__section-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -458,6 +504,11 @@
           align-items: center;
   padding: 1rem 0;
   background: #f4f4f7;
+  border-top: 1px outset rgba(48, 47, 47, 0.39);
+}
+
+.Badge__section-info {
+  background: #ffffff;
 }
 
 .Badge__section-url {
@@ -466,29 +517,9 @@
   padding-left: 3px;
 }
 
-.Badge__section-url:hover {
-  color: #327aa3;
-}
-
 .Badge__footer-icon {
   margin-top: -3px;
   color: rgba(0, 0, 0, 0.726);
-}
-
-.Badge__avatar {
-  width: 40%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.Badge__avatar-img {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
 }
 
 .Form__title {
@@ -817,86 +848,5 @@
 .nav__title--span2 {
   color: #f6f329;
   text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.575);
-}
-
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.cont {
-  min-height: calc(100vh - 96px);
-  background: url("./images/404background.png");
-  position: relative;
-}
-
-body {
-  font-family: "Lato", "Helvetica Neue", sans-serif;
-  background-color: #f4f4f7;
-  background: url("./images/404background.png");
-}
-
-h1 {
-  font-family: "Lato", sans-serif;
-}
-
-a.link-unstyled {
-  color: inherit;
-}
-
-a.link-unstyled:hover {
-  color: inherit;
-  text-decoration: none;
-}
-
-.btn {
-  padding: 0.375rem 2rem;
-}
-
-.btn.btn-danger {
-  color: #fff;
-  background-color: #cd4040;
-  border-color: #cd4040;
-}
-
-.btn.btn-danger:not(:disabled):not(.disabled):hover {
-  color: #fff;
-  background-color: #cd4040;
-  border-color: #cd4040;
-}
-
-.btn.btn-danger:not(:disabled):not(.disabled):active {
-  color: #fff;
-  background-color: #cd4040;
-  border-color: #cd4040;
-}
-
-input[type="text"],
-input[type="email"] {
-  border: 1px solid #a7a7a7;
-}
-
-.btn.btn-danger:not(:disabled):not(.disabled):focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 64, 64, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(255, 64, 64, 0.5);
-}
-
-.__buttons {
-  border: none;
-  background-color: #40a1a9;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bolder;
-  text-decoration: none;
-  border-bottom: 3px inset #2d747a;
-}
-
-.__buttons:hover {
-  background-color: rgba(64, 160, 169, 0.747);
-  -webkit-transition: background-color 0.5s;
-  transition: background-color 0.5s;
-  text-decoration: none;
-  color: white;
 }
 /*# sourceMappingURL=global.css.map */
