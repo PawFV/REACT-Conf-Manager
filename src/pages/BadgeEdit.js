@@ -13,122 +13,122 @@ import BadgeForm from '../components/BadgeForm.js';
 
 class BadgeEdit extends React.Component {
 
-    gitUrl = "https://github.com/PawFV/";
+   gitUrl = "https://github.com/PawFV/";
 
-    state = {
-        //Inicializamos true porque es una petición (PUT)
-        loading: true,
-        error: null,
-        form: {
-            firstName: '',
-            lastName: '',
-            email: '',
-            contact: '',
-            avatarUrl: '',
-        },
-        data: null
-    };
+   state = {
+      //Inicializamos true porque es una petición (PUT)
+      loading: true,
+      error: null,
+      form: {
+         firstName: '',
+         lastName: '',
+         email: '',
+         contact: '',
+         avatarUrl: '',
+      },
+      data: null
+   };
 
-    componentDidMount() {
-        this.fetchData()
-    }
+   componentDidMount() {
+      this.fetchData()
+   }
 
-    fetchData = async e => {
-        this.setState({ loading: true, error: null })
+   fetchData = async e => {
+      this.setState({ loading: true, error: null })
 
-        try {
-            const data = await api.badges.read(
-                this.props.match.params.badgeId
-            );
-            this.setState({ loading: false, form: data })
-        } catch (error) {
-            this.setState({ loading: false, form: error })
-        }
-    }
+      try {
+         const data = await api.badges.read(
+            this.props.match.params.badgeId
+         );
+         this.setState({ loading: false, form: data })
+      } catch (error) {
+         this.setState({ loading: false, form: error })
+      }
+   }
 
-    handleChange = e => {
-        const nextForm = this.state.form;
-        nextForm[e.target.name] = e.target.value;
-        //Comprobamos si el tipo es email para regresar el hash
-        if (e.target.name === "email") {
-            let imgHash = this.handleImgUrl(e.target.value)
-            nextForm["avatarUrl"] = imgHash;
-        }
-        this.setState({
-        })
-    }
+   handleChange = e => {
+      const nextForm = this.state.form;
+      nextForm[e.target.name] = e.target.value;
+      //Comprobamos si el tipo es email para regresar el hash
+      if (e.target.name === "email") {
+         let imgHash = this.handleImgUrl(e.target.value)
+         nextForm["avatarUrl"] = imgHash;
+      }
+      this.setState({
+      })
+   }
 
-    handleImgUrl(emailValue) {
-        const email = emailValue;
-        let hash = md5(email);
-        hash = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
-        return hash;
-    }
+   handleImgUrl(emailValue) {
+      const email = emailValue;
+      let hash = md5(email);
+      hash = `https://www.gravatar.com/avatar/${hash}?d=identicon`;
+      return hash;
+   }
 
-    handleSubmit = async e => {
-        e.preventDefault();
-        this.setState({ loading: true, error: null })
-        try {
-            await api.badges.update(this.props.match.params.badgeId, this.state.form)
-            this.setState({ loading: false, })
-            //Regresa a la página /badges
-            this.props.history.push('/badges')
-        } catch (error) {
-            this.setState({
-                loading: false,
-                error: error,
-            })
-        }
-    }
+   handleSubmit = async e => {
+      e.preventDefault();
+      this.setState({ loading: true, error: null })
+      try {
+         await api.badges.update(this.props.match.params.badgeId, this.state.form)
+         this.setState({ loading: false, })
+         //Regresa a la página /badges
+         this.props.history.push('/badges')
+      } catch (error) {
+         this.setState({
+            loading: false,
+            error: error,
+         })
+      }
+   }
 
-    isEmpty(obj) {
-        for (var prop in obj) {
-            if (obj.hasOwnProperty(prop)) {
-                return false;
-            }
-        }
-        return true
-    }
+   isEmpty(obj) {
+      for (var prop in obj) {
+         if (obj.hasOwnProperty(prop)) {
+            return false;
+         }
+      }
+      return true
+   }
 
-    render() {
+   render() {
 
-        if (this.state.loading) {
-            return <Loader />
-        }
+      if (this.state.loading) {
+         return <Loader />
+      }
 
-        if (this.isEmpty(this.state.form)) return <Error />
+      if (this.isEmpty(this.state.form)) return <Error />
 
-        return (
-            <div className="BadgeEdit__container">
-                <div className="container-sm pt-3">
-                    <div className="row">
-                        <div className="col-12 col-lg-6 mb-3">
-                            <Badge
-                                firstName={this.state.form.firstName || 'FIRST_NAME'}
-                                lastName={this.state.form.lastName || 'LAST_NAME'}
-                                contact={this.state.form.contact || 'contact'}
-                                email={this.state.form.email || 'email'}
-                                avatarUrl={this.state.form.avatarUrl}
-                                gitUrl={this.gitUrl}
-                                onChange={this.handleImgUrl}
-                            />
-                        </div>
-                        <div className="col-12 col-lg-6 mb-3">
-                            <BadgeForm
-                                onChange={this.handleChange}
-                                formvalues={this.state.form}
-                                onSubmit={this.handleSubmit}
-                                error={this.state.error}
-                                firstName={this.state.form.firstName || 'Name'}
-                                lastName={this.state.form.lastName}
-                                email={this.state.form.email || 'email'}
-                            />
-                        </div>
-                    </div>
-                </div>
-                <Footer />
+      return (
+         <div className="BadgeEdit__container">
+            <div className="container-sm pt-3">
+               <div className="row">
+                  <div className="col-12 col-lg-6 mb-3">
+                     <Badge
+                        firstName={this.state.form.firstName || 'FIRST_NAME'}
+                        lastName={this.state.form.lastName || 'LAST_NAME'}
+                        contact={this.state.form.contact || 'contact'}
+                        email={this.state.form.email || 'example@gmail.com'}
+                        avatarUrl={this.state.form.avatarUrl}
+                        gitUrl={this.gitUrl}
+                        onChange={this.handleImgUrl}
+                     />
+                  </div>
+                  <div className="col-12 col-lg-6 mb-3">
+                     <BadgeForm
+                        onChange={this.handleChange}
+                        formvalues={this.state.form}
+                        onSubmit={this.handleSubmit}
+                        error={this.state.error}
+                        firstName={this.state.form.firstName || 'Name'}
+                        lastName={this.state.form.lastName}
+                        email={this.state.form.email || 'email'}
+                     />
+                  </div>
+               </div>
             </div>
-        );
-    }
+            <Footer />
+         </div>
+      );
+   }
 }
 export default BadgeEdit;

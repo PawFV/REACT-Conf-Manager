@@ -430,6 +430,15 @@ input[type="email"] {
 }
 
 .Badge__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
   text-align: center;
   padding: 0.5rem;
@@ -476,9 +485,11 @@ input[type="email"] {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  border-right: 1px solid #a09f9f;
 }
 
 .Badge__section-name .Badge__avatar-img {
+  justify-self: flex-start;
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -523,6 +534,38 @@ input[type="email"] {
 .Badge__footer-icon {
   margin-top: -3px;
   color: rgba(0, 0, 0, 0.726);
+}
+
+@media screen and (max-width: 480px) {
+  .Badge__header-title {
+    font-size: 1.7rem;
+  }
+  .Badge__section-name {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1.5rem;
+  }
+  .Badge__section-name .Badge__avatar {
+    border: none;
+    border-bottom: 1px solid #a09f9f;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 1.5rem;
+  }
+  .Badge__section-name .Badge__name {
+    padding-top: 1rem;
+  }
+  .Badge__header-icon {
+    height: 40px;
+    width: 40px;
+  }
 }
 
 .Form__title {

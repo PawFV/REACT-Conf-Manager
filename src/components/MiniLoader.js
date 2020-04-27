@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Loader extends Component {
-    render() {
-        return (
-            <div className="lds-grid mini-loader">
-                <div />
-                <div />
-                <div />
-            </div>
-        );
-    }
+export default function MiniLoader() {
+   return (
+      <div className="lds-grid mini-loader">
+         <div />
+         <div />
+         <div />
+      </div>
+   );
 }

@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Loader extends Component {
-  render() {
-    return (
+export default function LoaderAnimation() {
+
+   return (
       <div className="lds-grid">
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
+         <div />
+         <div />
+         <div />
+         <div />
+         <div />
+         <div />
+         <div />
+         <div />
+         <div />
       </div>
-    );
-  }
+   );
+
 }
